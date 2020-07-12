@@ -1,0 +1,33 @@
+{
+  "name": "gas_fees",
+  "version": "1.0.7",
+  "description": "Generate report of gas fees paid for address over time period",
+  "license": "MIT",
+  "bin": {
+    "gas_fees": "bin/gas_fees"
+  },
+  "homepage": "https://github.com/conscott/gas_fees/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conscott/gas_fees.git"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint *.js"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^6.2.0",
+    "memoizee": "^0.4.14",
+    "meow": "^6.1.0",
+    "moment": "^2.24.0",
+    "web3": "^1.2.6",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
+}
