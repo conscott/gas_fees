@@ -4,12 +4,12 @@ const meow = require('meow');
 module.exports = () => {
   const cli = meow(`
     Usage
-      $ export NETWORK=<ropsten|mainnet>
       $ export INFURA_KEY=<infura key>
       $ export ETHERSCAN_KEY=<etherscan key>
       $ gas_fees <address or file with address list> --from-date <start_date> --to-date 2020-04-01 <end_date>
 
     Options
+      --network,      -n   Ethereum Network (mainnet|ropsten|kovan)     (default: mainnet)
       --from-date,    -f   Filter transfers after from this date        (default: 2014-01-01)
       --to-date,      -t   Filter transfers before this date            (default: now)
       --out,          -o   The output filename                          (default: report.csv)
@@ -19,6 +19,11 @@ module.exports = () => {
       $ gas_fees list_of_addresses.txt --from-date 2020-01-01 --to-date 2020-07-01
     `, {
     flags: {
+      'network': {
+        type: 'string',
+        alias: 'n',
+        default: 'mainnet'
+      },
       'from-date': {
         type: 'string',
         alias: 'f',
@@ -45,5 +50,6 @@ module.exports = () => {
     console.log(cli.help);
     process.exit();
   }
-  require('./src/app.js')(cli.input[0], cli.flags);
+  process.env.NETWORK = args.network;
+  require('./src/app.js')(cli.input[0], args);
 };

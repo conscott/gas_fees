@@ -1,6 +1,6 @@
 {
   "name": "gas_fees",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Generate report of gas fees paid for address over time period",
   "license": "MIT",
   "bin": {
@@ -20,7 +20,6 @@
   "dependencies": {
     "bignumber.js": "^9.0.0",
     "csv-writer": "^1.6.0",
-    "dotenv": "^6.2.0",
     "memoizee": "^0.4.14",
     "meow": "^6.1.0",
     "moment": "^2.24.0",

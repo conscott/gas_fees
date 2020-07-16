@@ -4,8 +4,15 @@ const logger = require('./logging.js');
 var API;
 if (process.env.NETWORK === 'ropsten') {
   API = 'https://api-ropsten.etherscan.io/api';
+} else if (process.env.NETWORK === 'kovan') {
+  API = 'https://api-kovan.etherscan.io/api';
 } else {
   API = 'https://api.etherscan.io/api';
+}
+
+if (!process.env.ETHERSCAN_KEY) {
+  console.log('Need to set ETHERSCAN_KEY environment variable');
+  process.exit();
 }
 
 const API_KEY = process.env.ETHERSCAN_KEY;
