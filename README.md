@@ -54,4 +54,4 @@ Done processing.
 
 ### Limitations
 
-The Ethercan API will only return up to 10,000 transactions, the that is currently the largest report that will be generated.
+The Ethercan API will only return up to 10,000 transactions, and that is currently the largest report that will be generated.
