@@ -24,8 +24,9 @@ const getTransactionsByAddress = async (addr, fromBlock, toBlock) => {
       '?module=account&action=txlist&address=' + addr +
       '&startblock=' + fromBlock +
       '&endblock=' + toBlock +
-      'sort=asc&apikey=' + API_KEY
+      '&sort=asc&apikey=' + API_KEY
     );
+    console.log(url);
     request(url, async(err, res, body) => {
       if (err) {
         logger.error(err);
