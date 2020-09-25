@@ -70,7 +70,7 @@ const scanFees = async(addrs, fromBlock, toBlock, startTime, sym) => {
         const tokenPrice = coingecko.getPriceAtTime(tokenHistory, tx.timeStamp);
         const gasFee = BigNumber(tx.gasPrice).times(tx.gasUsed).div(BigNumber(10**18));
         const feeUsd = gasFee.times(ethPrice);
-        const feeToken = feeUsd.div(tokenPrice);
+        const feeToken = tokenPrice > 0 ? feeUsd.div(tokenPrice) : 0.0;
         feeInfo = {
           token: sym,
           ethPrice: ethPrice,

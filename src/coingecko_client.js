@@ -16,13 +16,16 @@ const getCoinId = (sym) => {
       return coin.id;
     }
   }
-  console.log(`Could not find id for symbol ${sym}`);
-  process.exit();
+  console.error(`Could not find coin-id for symbol ${sym}`);
+  return null;
 };
 
 const getPriceHistory = async(sym, days, currency) => {
   currency = currency || 'usd';
   let coinid = getCoinId(sym);
+  if (!coinid) {
+    return [];
+  }
   let history  = await cgc.coins.fetchMarketChart(coinid, {days: days, vs_currency: currency});
   return history.data.prices;
 };
@@ -34,6 +37,9 @@ const closerTime = (h1, h2, target) => {
 };
 
 const getPriceAtTime = (priceHistory, time) => {
+  if (!priceHistory.length || !time) {
+    return 0.0;
+  }
   if (time instanceof Date) {
     time = utils.dateToTimestamp(time);
   }
