@@ -78,7 +78,6 @@ const scanFees = async(addrs, fromBlock, toBlock, startTime, sym) => {
           feeUsd: feeUsd.toFixed(2),
           feeToken: feeToken.toFixed(8)
         };
-        console.log(JSON.stringify(feeInfo, null, 4));
       }
       await processTransaction(tx, feeInfo);
     }
@@ -116,11 +115,6 @@ const run = async(addresses, args) => {
   logger.info("Scanning " + args.network + " for " + addrs.length + " addresses from block " +
               startBlockNum + " (" + startBlockTime + ")" + " to " +
               endBlockNum + " (" + endBlockTime + ")");
-
-  if (tokenCompare) {
-    console.log("Also comparing gasFees paid to price of token " + args.sym + " at time of tx");
-  }
-
 
   if (!tokenCompare) {
     csvWriter = createCsvWriter({
