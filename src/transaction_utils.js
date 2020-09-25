@@ -29,7 +29,9 @@ const getBlockDate = memoize(gbt);
 const getBlockByTime = async(targetDate) => {
   let targetTimestamp = dateToTimestamp(targetDate);
   let averageBlockTime = 13.5;
-  const currentBlockNumber = await web3.eth.getBlockNumber();
+  let currentBlockNumber = await web3.eth.getBlockNumber();
+  // Sometimes querying for same block gives error, go back a bit
+  currentBlockNumber = currentBlockNumber - 3;
   let block = await web3.eth.getBlock(currentBlockNumber);
   let blockNumber = currentBlockNumber;
   while(block.timestamp > targetTimestamp){
