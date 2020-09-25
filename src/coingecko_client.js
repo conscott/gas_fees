@@ -12,7 +12,8 @@ const initCoins = async() => {
 const getCoinId = (sym) => {
   assert(coins, 'Must call initCoins() first');
   for (let coin of coins) {
-    if (sym.toLowerCase() === coin.symbol.toLowerCase()) {
+    if (sym.toLowerCase() === coin.id.toLowerCase() ||
+        sym.toLowerCase() === coin.symbol.toLowerCase()) {
       return coin.id;
     }
   }
