@@ -26,7 +26,6 @@ const getTransactionsByAddress = async (addr, fromBlock, toBlock) => {
       '&endblock=' + toBlock +
       '&sort=asc&apikey=' + API_KEY
     );
-    console.log(url);
     request(url, async(err, res, body) => {
       if (err) {
         logger.error(err);
