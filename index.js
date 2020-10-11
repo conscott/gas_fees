@@ -12,6 +12,7 @@ module.exports = () => {
       --network,      -n   Ethereum Network (mainnet|ropsten|kovan)     (default: mainnet)
       --from-date,    -f   Filter transfers after from this date        (default: 2014-01-01)
       --to-date,      -t   Filter transfers before this date            (default: now)
+      --show-usd      -u   Show fees paid in USD in report              (default: false)
       --sym           -s   If passed, compare gasFees to token price    (default: null)
       --out,          -o   The output filename                          (default: report.csv)
 
@@ -39,6 +40,11 @@ module.exports = () => {
         type: 'string',
         alias: '0',
         default: 'report.csv'
+      },
+      'show-usd': {
+        type: 'boolean',
+        alias: 'u',
+        default: false
       },
       'sym': {
         type: 'string',
