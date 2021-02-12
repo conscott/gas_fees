@@ -12,7 +12,7 @@ npm install -g gas_fees
 
 ### Install from Source
 ```
-git clone https://github.com/cache-token/gas_fees.git
+git clone https://github.com/conscott/gas_fees.git
 cd gas_fees
 npm install
 npm link
