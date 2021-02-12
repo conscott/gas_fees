@@ -1,6 +1,6 @@
 {
   "name": "gas_fees",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Generate report of gas fees paid for address over time period",
   "license": "MIT",
   "bin": {
